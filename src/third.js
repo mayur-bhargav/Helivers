@@ -4,13 +4,9 @@ import {
   View,
   Image,
   StyleSheet,
-  Animated,
   TouchableOpacity
 } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { Dimensions } from 'react-native';
-import Home from './Home';
 import { useNavigation } from '@react-navigation/native';
 const Third = () => {
   const navigation = useNavigation();

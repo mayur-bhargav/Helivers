@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import {
     Text,
@@ -16,35 +15,26 @@ const Second = () => {
         setTimeout(() => {
             navigation.navigate('Third')
         }, 20000)
-
     }, [])
-
     const [isProfileVisible, setIsProfileVisible] = useState(false);
     const profileAnimation = useState(new Animated.Value(0))[0];
-
     const handleArrowPress = () => {
         setIsProfileVisible(!isProfileVisible);
-
         Animated.timing(profileAnimation, {
             toValue: isProfileVisible ? 0 : 1,
             duration: 1000,
             useNativeDriver: true,
         }).start();
     };
-
     const profileTranslateX = profileAnimation.interpolate({
         inputRange: [0, 1],
         outputRange: [500, 0],
     });
-
     const profileTranslateXReverse = profileAnimation.interpolate({
         inputRange: [0, 1],
         outputRange: [0, 500],
     });
-
-
     return (
-
         <View>
             <Image source={require('../assets/award_bg.png')} style={styles.awardbg} />
             <Image source={require('../assets/awardPlatform.png')} style={styles.awardplatform} />
@@ -58,7 +48,6 @@ const Second = () => {
                 <Image source={require('../assets/arrow.png')} style={styles.arrow} />
             </TouchableOpacity>
             <View style={styles.container}>
-
                 <Animated.View
                     style={[
                         styles.profileContainer,
@@ -71,8 +60,7 @@ const Second = () => {
                         },
                     ]}
                 >
-                    <Image source={require('../assets/avtar2.png')}
-                        style={styles.profileimg} />
+                    <Image source={require('../assets/avtar2.png')} style={styles.profileimg} />
                     <Text style={styles.profileText1}>D-Lister</Text>
                     <View>
                         <Text style={styles.profileText2}>Sally</Text></View>
@@ -137,7 +125,7 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     arrow: {
-        width: 60, 
+        width: 60,
         height: 70
     },
     arrowtouch: {
@@ -148,44 +136,41 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     text: {
-        marginTop: 135, 
-        marginLeft: 50, 
-        fontSize: 32, 
-        color: 'yellow', 
+        marginTop: 135,
+        marginLeft: 50,
+        fontSize: 32,
+        color: 'yellow',
         textShadowOffset: { width: 1.1, height: 1.5 },
         textShadowRadius: 1,
         textShadowColor: 'gray',
     },
     textheart: {
-        marginTop: 220, 
-        marginLeft: 140, 
-        fontSize: 25, 
+        marginTop: 220,
+        marginLeft: 140,
+        fontSize: 25,
         color: 'yellow',
         position: 'absolute',
 
     },
-    girlclap: { 
-        position: 'absolute', 
-        width: 200, 
-        marginTop: 300, 
-        marginLeft: 87, 
-        height: 400 
+    girlclap: {
+        position: 'absolute',
+        width: 200,
+        marginTop: 300,
+        marginLeft: 87,
+        height: 400
     },
-    awardplatform: { 
-        position: 'absolute', 
-        width: win.width, 
-        marginTop: 665 
+    awardplatform: {
+        position: 'absolute',
+        width: win.width,
+        marginTop: 665
     },
     awardbg: {
         width: win.width,
         height: 390 * ratio,
     },
-    viewheart:{
-        shadowColor: '#FF0099', 
-        position: 'absolute' 
+    viewheart: {
+        shadowColor: '#FF0099',
+        position: 'absolute'
     }
-
 })
-
-
 export default Second;

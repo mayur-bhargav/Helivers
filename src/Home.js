@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Countdown from 'react-native-countdown-component';
 import {
@@ -7,6 +6,7 @@ import {
     Image,
     StyleSheet,
 } from 'react-native';
+import { StatusBar } from 'react-native';
 import { Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 const Home = () => {
@@ -14,13 +14,14 @@ const Home = () => {
     useEffect(() => {
         setTimeout(() => {
             navigation.navigate('Second')
-        }, 5000)
-
+        }, 3000)
     }, [])
-   
-    
     return (
         <View>
+            <StatusBar
+            backgroundColor={'#492283'}
+            barStyle={'default'}
+            ></StatusBar>
             <Image source={require('../assets/award_bg.png')} style={styles.awardbg} />
             <Image source={require('../assets/awardPlatform.png')} style={styles.awardplatform} />
             <Image source={require('../assets/girlClap.png')} style={styles.girlclap} />
@@ -40,9 +41,8 @@ const Home = () => {
                 <Text style={styles.text2}>𝘊𝘈𝘚𝘛𝘐𝘕𝘎 𝘊𝘈𝘓𝘓</Text>
             </View>
         </View>
-
+      
     );
-    
 }
 const win = Dimensions.get('window');
 const ratio = win.width / 200;
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         marginLeft: 100,
         resizeMode: 'contain'
     },
-    awardbg:{
+    awardbg: {
         width: win.width,
         height: 390 * ratio,
     },
@@ -65,40 +65,38 @@ const styles = StyleSheet.create({
         marginTop: 665,
     },
     girlclap: {
-        position: 'absolute', 
-        width: 200, 
-        marginTop: 300, 
-        marginLeft: 87, 
+        position: 'absolute',
+        width: 200,
+        marginTop: 300,
+        marginLeft: 87,
         height: 400
     },
     text1: {
-        position: 'absolute', 
-        marginTop: 230, 
-        marginLeft: 70, 
-        fontSize: 32, 
+        position: 'absolute',
+        marginTop: 230,
+        marginLeft: 70,
+        fontSize: 32,
         color: 'yellow'
     },
-    view1: { 
-        position: 'absolute', 
-        marginTop: 120, 
-        marginLeft: 120, 
-        transform: [{ rotate: '-20deg' }] 
+    view1: {
+        position: 'absolute',
+        marginTop: 120,
+        marginLeft: 120,
+        transform: [{ rotate: '-20deg' }]
     },
-    view2:{ 
-        shadowColor: '#FF0099', 
-        position: 'absolute', 
-        transform: [{ rotate: '-15deg' }] 
+    view2: {
+        shadowColor: '#FF0099',
+        position: 'absolute',
+        transform: [{ rotate: '-15deg' }]
     },
-    text2:{
-        marginTop: 165, 
-        marginLeft: 50, 
-        fontSize: 32, 
-        color: '#FF0099', 
+    text2: {
+        marginTop: 165,
+        marginLeft: 50,
+        fontSize: 32,
+        color: '#FF0099',
         textShadowOffset: { width: 2, height: 2 },
         textShadowRadius: 1,
         textShadowColor: 'pink',
     },
 })
-
-
 export default Home;
